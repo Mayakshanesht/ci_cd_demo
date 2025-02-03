@@ -26,10 +26,11 @@ kind: Service
 metadata:
   name: calculator-service
 spec:
+  type: NodePort  # Change from LoadBalancer to NodePort
   selector:
     app: calculator
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 5000
-  type: LoadBalancer
+      targetPort: 80
+      nodePort: 30080  # Choose a port between 30000-32767
