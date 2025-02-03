@@ -1,39 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deepseek-llm-deployment
+  name: calculator-app
 spec:
   replicas: 5
   selector:
     matchLabels:
-      app: deepseek-llm
+      app: calculator
   template:
     metadata:
       labels:
-        app: deepseek-llm
+        app: calculator
     spec:
       containers:
-      - name: deepseek-llm-container
-        image: mayakshanesht/llm-app:latest
-        ports:
-        - containerPort: 80
-        env:
-        - name: DEEPSEEK_API_KEY
-          valueFrom:
-            secretKeyRef:
-              name: deepseek-api-key
-              key: api-key
+        - name: calculator
+          image: mayakshanesht/calculator
+          ports:
+            - containerPort: 5000
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: deepseek-llm-service
+  name: calculator-service
 spec:
+  type: LoadBalancer
   selector:
-    app: deepseek-llm
+    app: calculator
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 80
-  type: LoadBalancer
+      targetPort: 5000
