@@ -6,14 +6,14 @@ spec:
   replicas: 5
   selector:
     matchLabels:
-     app: calculator
+      app: calculator
   template:
     metadata:
-     labels:
-      app: calculator
+      labels:
+        app: calculator
     spec:
-     containers:
-      - name: calculator
+      containers:
+        - name: calculator
           image: mayakshanesht/calculator
           ports:
             - containerPort: 5000
@@ -31,4 +31,3 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 5000
-    
