@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: deepseek-llm-container
-        image: mayakshanesht/LLM-APP:latest
+        image: mayakshanesht/llm-app:latest
         ports:
         - containerPort: 80
         env:

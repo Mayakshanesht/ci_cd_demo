@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKERHUB_USER = "mayakshanesht"
-        DOCKER_IMAGE = "LLM-APP"
+        DOCKER_IMAGE = "llm-app"
         // DOCKER_HUB_CREDENTIALS = credentials('docker-hub-credentials')
         // KUBECONFIG = credentials('kubeconfig')
     }
