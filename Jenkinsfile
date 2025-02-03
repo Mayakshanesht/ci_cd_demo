@@ -7,7 +7,7 @@ pipeline{
     stages{
         stage('Checkout'){
             steps{
-                git branch:'main' url:'https://github.com/Mayakshanesht/ci_cd_demo.git'
+                git branch:'main', url:'https://github.com/Mayakshanesht/ci_cd_demo.git'
             }
         }
         stage('Build Docker Image'){
