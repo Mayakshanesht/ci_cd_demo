@@ -1,34 +1,38 @@
-import math
+from flask import Flask, request, jsonify
 
-class calculator:
-    def __init__(self,a, b):
+app = Flask(__name__)
+
+class Calculator:
+    def __init__(self, a, b):
         self.a = a
         self.b = b
-    
+
     def add(self):
-        c = self.a + self.b
-        return c
-    
+        return self.a + self.b
+
     def multiply(self):
-        c = self.a * self.b
-        return c
+        return self.a * self.b
 
-if __name__== '__main__':
-    
-    a = int(input("enter the first number "))
-    b = int(input("enter the second number "))
-    
-    calc = calculator(a,b)
-    ops = input("enter the operation as a string: ")
-    if ops == "add":
-        answer = calc.add()
-        print("Answer is : ", answer)
-    elif ops == "multiply":
-        answer = calc.multiply()
-        print("Answer is :", answer)
-    else:
-        print(" Operation is not valid")
+@app.route('/calculate', methods=['GET'])
+def calculate():
+    try:
+        a = int(request.args.get('a'))
+        b = int(request.args.get('b'))
+        operation = request.args.get('operation')
 
-  
+        calc = Calculator(a, b)
 
+        if operation == "add":
+            result = calc.add()
+        elif operation == "multiply":
+            result = calc.multiply()
+        else:
+            return jsonify({"error": "Invalid operation. Use 'add' or 'multiply'"}), 400
 
+        return jsonify({"result": result})
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 400
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
