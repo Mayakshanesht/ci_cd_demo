@@ -9,6 +9,6 @@ COPY requirements.txt /app/
 # Install dependencies
 RUN pip install --no-cache-dir -r /app/requirements.txt
 
-EXPOSE 80
+EXPOSE 5002
 
 CMD ["python3", "project.py"]
