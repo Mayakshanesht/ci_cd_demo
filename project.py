@@ -15,11 +15,11 @@ class calculator:
 
 if __name__== '__main__':
     
-    a = int(input("enter the first number "))
-    b = int(input("enter the second number "))
+    a = 5 #int(input("enter the first number "))
+    b = 5 #int(input("enter the second number "))
     
     calc = calculator(a,b)
-    ops = input("enter the operation as a string: ")
+    ops = "add" #input("enter the operation as a string: ")
     if ops == "add":
         answer = calc.add()
         print("Answer is : ", answer)
