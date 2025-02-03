@@ -26,10 +26,10 @@ kind: Service
 metadata:
   name: calculator-service
 spec:
-  type: LoadBalancer
   selector:
     app: calculator
   ports:
     - protocol: TCP
       port: 80
       targetPort: 5000
+  type: LoadBalancer
