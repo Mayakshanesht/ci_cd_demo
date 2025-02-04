@@ -5,7 +5,8 @@ This repository demonstrates setting up a Continuous Integration and Continuous 
 ## Prerequisites
 
 - **Jenkins** installed
-- **Kubernetes** cluster up and running
+- **Docker** installed and Dockerhub account credentials added to the jenkins
+- **Kubernetes** cluster up and running using the k3s 
 - **kubectl** installed and configured
 
 ## Steps to Set Up the Project
