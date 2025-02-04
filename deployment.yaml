@@ -31,6 +31,6 @@ spec:
     app: calculator
   ports:
     - protocol: TCP
-      port: 80
+      port: 5002
       targetPort: 5002
       nodePort: 30080  # Choose a port between 30000-32767
