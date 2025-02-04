@@ -1,8 +1,4 @@
-I am unable to access the contents of the GitHub repository directly, but I can help you create a `README.md` for the project based on the steps you’ve mentioned. Here's a sample `README.md` that you can use for the project:
-
----
-
-# CI/CD Demo with Jenkins and Kubernetes
+# CI/CD Demo with Github, Jenkins, Docker and Kubernetes 
 
 This repository demonstrates setting up a Continuous Integration and Continuous Deployment (CI/CD) pipeline using Jenkins and deploying a service to Kubernetes. The application is exposed on a Kubernetes service and can be accessed locally via port forwarding.
 
