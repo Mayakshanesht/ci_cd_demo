@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
 
@@ -12,6 +12,34 @@ class Calculator:
 
     def multiply(self):
         return self.a * self.b
+
+@app.route('/')
+def index():
+    return '''
+    <html>
+        <head>
+            <title>Simple Calculator</title>
+        </head>
+        <body>
+            <h2>Enter Numbers</h2>
+            <form action="/calculate" method="get">
+                <label for="a">Number 1:</label>
+                <input type="number" id="a" name="a" required>
+                <br>
+                <label for="b">Number 2:</label>
+                <input type="number" id="b" name="b" required>
+                <br>
+                <label for="operation">Choose operation:</label>
+                <select name="operation" id="operation">
+                    <option value="add">Add</option>
+                    <option value="multiply">Multiply</option>
+                </select>
+                <br><br>
+                <button type="submit">Calculate</button>
+            </form>
+        </body>
+    </html>
+    '''
 
 @app.route('/calculate', methods=['GET'])
 def calculate():
@@ -29,7 +57,7 @@ def calculate():
         else:
             return jsonify({"error": "Invalid operation. Use 'add' or 'multiply'"}), 400
 
-        return jsonify({"result": result})
+        return f"<h2>Result: {result}</h2><br><a href='/'>Go Back</a>"
 
     except Exception as e:
         return jsonify({"error": str(e)}), 400
