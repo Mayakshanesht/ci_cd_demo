@@ -1,6 +1,6 @@
 flask
-torch
-torchvision
-pillow
-werkzeug
-requests
+# torch
+# torchvision
+# pillow
+# werkzeug
+# requests
